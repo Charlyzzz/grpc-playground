@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+service TypeRace {
+  rpc SendMetrics (stream PlayerMetrics) returns (stream Scoreboard);
+}
+
+message PlayerMetrics {
+  string username = 1;
+  int32 strokesPerMinute = 2;
+}
+
+message Scoreboard {
+  repeated PlayerMetrics reply = 1;
+}
